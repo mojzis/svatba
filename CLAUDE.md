@@ -18,8 +18,8 @@ The website serves as a digital wedding invitation providing guests with:
 
 ## Available Versions
 
-- `index.html` - Main wedding invitation page
-- `index-subtle.html` - Low-contrast variant of the invitation
+- `index.html` - Main wedding invitation page (uses subtle/low-contrast design)
+- `index-contrast.html` - High-contrast variant (legacy, does not need to be updated for now)
 
 ## Deployment
 
