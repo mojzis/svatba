@@ -1,19 +1,15 @@
 /* ===================================
    CSS Custom Properties / Variables
-   Low Contrast Variant
    =================================== */
 :root {
-    /* Colors - Low Contrast Palette */
-    --color-primary: #6b6b6b;
-    --color-secondary: #f7f7f5;
-    --color-accent: #888;
-    --color-text: #555555;
-    --color-text-light: #888888;
-    --color-text-lighter: #999999;
-    --color-border: #e8e8e6;
-    --color-white: #fafaf8;
-    --color-off-white: #f5f5f0;
-    --color-subtle-bg: #f9f9f7;
+    /* Colors */
+    --color-primary: #1a1a1a;
+    --color-secondary: #f8f8f8;
+    --color-accent: #333;
+    --color-text: #2a2a2a;
+    --color-text-light: #666;
+    --color-border: #e0e0e0;
+    --color-white: #ffffff;
 
     /* Typography */
     --font-serif: 'Playfair Display', 'Georgia', serif;
@@ -61,7 +57,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     line-height: 1.3;
     margin-bottom: var(--spacing-sm);
-    color: var(--color-text);
 }
 
 h1 {
@@ -120,7 +115,7 @@ section {
     align-items: center;
     text-align: center;
     position: relative;
-    background: linear-gradient(to bottom, var(--color-white) 0%, var(--color-subtle-bg) 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f8f8 100%);
     padding: var(--spacing-lg) var(--spacing-md);
 }
 
@@ -144,7 +139,7 @@ section {
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.08;
+    opacity: 0.1;
     /* Placeholders for future illustration elements */
 }
 
@@ -175,7 +170,6 @@ section {
     font-weight: 300;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--color-text);
 }
 
 .names {
@@ -186,7 +180,6 @@ section {
     font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 300;
     margin-bottom: var(--spacing-xs);
-    color: var(--color-text);
 }
 
 .divider {
@@ -194,8 +187,7 @@ section {
     font-family: var(--font-serif);
     font-size: 2rem;
     margin: var(--spacing-sm) 0;
-    opacity: 0.4;
-    color: var(--color-text-light);
+    opacity: 0.5;
 }
 
 .hero-text {
@@ -207,7 +199,6 @@ section {
     font-family: var(--font-serif);
     margin-bottom: var(--spacing-md);
     font-weight: 300;
-    color: var(--color-text);
 }
 
 .venue-intro {
@@ -220,7 +211,6 @@ section {
 .invitation-text {
     font-size: clamp(1rem, 2vw, 1.2rem);
     margin-bottom: var(--spacing-md);
-    color: var(--color-text);
 }
 
 .joy-text {
@@ -240,8 +230,7 @@ section {
 
 .scroll-indicator span {
     font-size: 2rem;
-    opacity: 0.25;
-    color: var(--color-text-light);
+    opacity: 0.3;
 }
 
 @keyframes bounce {
@@ -257,18 +246,16 @@ section {
 }
 
 /* ===================================
-   RSVP Section - Subtle Variant
+   RSVP Section
    =================================== */
 .rsvp-section {
-    background-color: var(--color-off-white);
-    color: var(--color-text);
+    background-color: var(--color-primary);
+    color: var(--color-white);
     text-align: center;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
 }
 
 .rsvp-section h3 {
-    color: var(--color-text);
+    color: var(--color-white);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -286,7 +273,6 @@ section {
     position: relative;
     padding-left: 3rem;
     text-align: left;
-    color: var(--color-text);
 }
 
 .rsvp-instructions li::before {
@@ -296,7 +282,6 @@ section {
     font-family: var(--font-serif);
     font-size: 1.5rem;
     font-weight: 300;
-    color: var(--color-text-light);
 }
 
 .qr-container {
@@ -319,16 +304,16 @@ section {
 }
 
 .qr-placeholder p {
-    color: var(--color-text-lighter);
+    color: var(--color-text-light);
     margin: 0;
 }
 
 .btn-primary {
     display: inline-block;
     padding: 1rem 3rem;
-    background-color: transparent;
-    color: var(--color-text);
-    border: 2px solid var(--color-primary);
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border: 2px solid var(--color-white);
     border-radius: 50px;
     font-size: 1.1rem;
     font-weight: 500;
@@ -339,7 +324,7 @@ section {
 }
 
 .btn-primary:hover {
-    background-color: var(--color-primary);
+    background-color: transparent;
     color: var(--color-white);
     opacity: 1;
 }
@@ -347,18 +332,13 @@ section {
 .dress-code {
     margin-top: var(--spacing-lg);
     padding-top: var(--spacing-lg);
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .dress-code p {
     font-size: 1rem;
     font-style: italic;
     margin: 0;
-    color: var(--color-text);
-}
-
-.dress-code strong {
-    color: var(--color-text);
 }
 
 /* ===================================
@@ -370,7 +350,7 @@ section {
 }
 
 .ceremony-section {
-    background-color: var(--color-subtle-bg);
+    background-color: var(--color-secondary);
 }
 
 .section-title {
@@ -378,7 +358,6 @@ section {
     margin-bottom: var(--spacing-lg);
     font-weight: 300;
     letter-spacing: 0.1em;
-    color: var(--color-text);
 }
 
 .event-details {
@@ -412,7 +391,6 @@ section {
     font-size: 1.8rem;
     font-weight: 300;
     margin-bottom: var(--spacing-xs);
-    color: var(--color-text);
 }
 
 .location .address {
@@ -429,9 +407,8 @@ section {
 .map-placeholder {
     width: 100%;
     height: 400px;
-    background-color: var(--color-secondary);
+    background-color: #e8e8e8;
     border-radius: 8px;
-    border: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -448,22 +425,16 @@ section {
 }
 
 .map-link {
-    position: absolute;
-    bottom: var(--spacing-md);
-    right: var(--spacing-md);
     padding: 0.5rem 1.5rem;
-    background-color: rgba(255, 255, 255, 0.95);
-    color: var(--color-text);
-    border: 1px solid var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-white);
     border-radius: 4px;
     font-size: 0.95rem;
     transition: var(--transition-smooth);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .map-link:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+    background-color: var(--color-accent);
     opacity: 1;
 }
 
@@ -472,14 +443,12 @@ section {
     padding: var(--spacing-md);
     background-color: var(--color-secondary);
     border-radius: 8px;
-    border: 1px solid var(--color-border);
 }
 
 .transport-info h4 {
     font-size: 1.2rem;
     margin-bottom: var(--spacing-md);
     text-align: center;
-    color: var(--color-text);
 }
 
 .transport-options {
@@ -526,7 +495,7 @@ section {
 }
 
 .news-item.highlighted {
-    background-color: var(--color-subtle-bg);
+    background-color: var(--color-secondary);
     border-left-color: var(--color-primary);
 }
 
@@ -541,18 +510,16 @@ section {
 .news-text {
     font-size: 1.1rem;
     margin: 0;
-    color: var(--color-text);
 }
 
 /* ===================================
-   Footer - Subtle Variant
+   Footer
    =================================== */
 .footer {
-    background-color: var(--color-off-white);
-    color: var(--color-text);
+    background-color: var(--color-primary);
+    color: var(--color-white);
     padding: var(--spacing-lg) 0;
     text-align: center;
-    border-top: 1px solid var(--color-border);
 }
 
 .footer-content {
@@ -562,8 +529,7 @@ section {
 
 .footer-text {
     margin-bottom: var(--spacing-md);
-    opacity: 0.85;
-    color: var(--color-text);
+    opacity: 0.8;
 }
 
 .contact-emails {
@@ -573,7 +539,7 @@ section {
 }
 
 .contact-emails a {
-    color: var(--color-text);
+    color: var(--color-white);
     font-size: 1.1rem;
     transition: var(--transition-smooth);
 }
