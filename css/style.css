@@ -216,6 +216,22 @@ section {
     text-transform: uppercase;
 }
 
+.hero-title-image {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.hero-illustration {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    margin: 0 auto var(--spacing-md);
+}
+
 .names {
     margin: var(--spacing-lg) 0;
 }
@@ -579,6 +595,23 @@ section {
     border-left: 3px solid var(--color-border);
     text-align: left;
     transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.news-item-ornament {
+    float: right;
+    width: 110px;
+    height: auto;
+    margin: 0 0 var(--spacing-sm) var(--spacing-md);
+    shape-outside: margin-box;
+}
+
+@media (max-width: 480px) {
+    .news-item-ornament {
+        float: none;
+        display: block;
+        margin: 0 auto var(--spacing-sm);
+    }
 }
 
 .news-item.highlighted {

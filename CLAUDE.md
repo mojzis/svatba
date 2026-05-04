@@ -28,3 +28,9 @@ The site is hosted on GitHub Pages (`.nojekyll` file enables proper deployment).
 ## Technology
 
 Simple static HTML/CSS/JavaScript website with no external dependencies or build process required.
+
+## Local preview & screenshots
+
+Serve with `python3 -m http.server 8766 --bind 127.0.0.1` from the repo root (port 8765 is already taken by the braindump app on this machine).
+
+For screenshots, `google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=WxH --screenshot=PATH URL` works **but only captures the viewport** — and `.hero { min-height: 100vh }` expands to whatever height you pass, so increasing `--window-size` height does not reveal sections below the fold; it just makes the hero taller. True full-page capture would need CDP `Page.captureScreenshot { captureBeyondViewport: true }` (no `websockets` py module installed) or playwright (not installed). For below-the-fold UI verification, ask the user for a screenshot rather than fighting the tooling.
