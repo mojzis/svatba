@@ -169,6 +169,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================
     initHeroAnimations();
 
+    // ===================================
+    // Lightbox for map images
+    // ===================================
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        const lightboxImg = lightbox.querySelector('.lightbox-image');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+
+        document.querySelectorAll('[data-lightbox-src]').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                lightboxImg.src = trigger.dataset.lightboxSrc;
+                lightboxImg.alt = trigger.dataset.lightboxAlt || '';
+                lightbox.showModal();
+            });
+        });
+
+        const close = () => lightbox.close();
+        closeBtn.addEventListener('click', close);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) close();
+        });
+    }
+
     // Log ready state
     console.log('Wedding website initialized ❤️');
 });

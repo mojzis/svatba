@@ -31,10 +31,23 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Prepare deploy directory
+        run: |
+          mkdir -p _site/sources
+          rsync -a \
+            --include='/css/***' \
+            --include='/js/***' \
+            --include='/images/***' \
+            --include='/index.html' \
+            --include='/.nojekyll' \
+            --exclude='*' \
+            ./ _site/
+          cp sources/invite_front.png sources/kaple_mapa.png sources/rez_map_arrows.png _site/sources/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
