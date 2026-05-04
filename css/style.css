@@ -19,6 +19,27 @@
     --font-serif: 'Playfair Display', 'Georgia', serif;
     --font-sans: 'Lato', 'Helvetica Neue', Arial, sans-serif;
 
+    /* Type scale */
+    --text-eyebrow: 0.85rem;   /* uppercase labels (Čas, Místo) */
+    --text-base: 1rem;         /* default body, addresses, small notes */
+    --text-md: 1.1rem;         /* info-block paragraphs, lists */
+    --text-lg: 1.2rem;         /* h4, invitation/venue intro */
+    --text-display-md: 1.8rem; /* "value" role: time, venue name, hero date */
+
+    /* Tracking */
+    --tracking-wide: 0.1em;     /* labels, section titles */
+    --tracking-display: 0.15em; /* hero title only */
+
+    /* Weights */
+    --weight-light: 300;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+
+    /* Line heights */
+    --leading-body: 1.7;
+    --leading-tight: 1.3;
+
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -48,7 +69,7 @@ html {
 body {
     font-family: var(--font-sans);
     color: var(--color-text);
-    line-height: 1.7;
+    line-height: var(--leading-body);
     background-color: var(--color-white);
     overflow-x: hidden;
 }
@@ -58,15 +79,14 @@ body {
    =================================== */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-    font-weight: 400;
-    line-height: 1.3;
+    font-weight: var(--weight-light);
+    line-height: var(--leading-tight);
     margin-bottom: var(--spacing-sm);
     color: var(--color-text);
 }
 
 h1 {
     font-size: clamp(3rem, 8vw, 6rem);
-    letter-spacing: 0.05em;
 }
 
 h2 {
@@ -78,7 +98,7 @@ h3 {
 }
 
 h4 {
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-size: var(--text-lg);
 }
 
 p {
@@ -96,6 +116,7 @@ a:hover {
 }
 
 .transport-info a,
+.rsvp-instructions a,
 .location .address a,
 .location .value a {
     color: var(--color-primary);
@@ -103,10 +124,11 @@ a:hover {
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
     text-decoration-color: var(--color-accent);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
 }
 
 .transport-info a:hover,
+.rsvp-instructions a:hover,
 .location .address a:hover,
 .location .value a:hover {
     text-decoration-color: var(--color-primary);
@@ -190,10 +212,8 @@ section {
 
 .hero-title {
     margin-bottom: var(--spacing-md);
-    font-weight: 300;
-    letter-spacing: 0.15em;
+    letter-spacing: var(--tracking-display);
     text-transform: uppercase;
-    color: var(--color-text);
 }
 
 .names {
@@ -202,9 +222,7 @@ section {
 
 .names h2 {
     font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 300;
     margin-bottom: var(--spacing-xs);
-    color: var(--color-text);
 }
 
 .divider {
@@ -221,30 +239,27 @@ section {
 }
 
 .date {
-    font-size: clamp(1.3rem, 3vw, 2rem);
     font-family: var(--font-serif);
+    font-size: var(--text-display-md);
+    font-weight: var(--weight-light);
     margin-bottom: var(--spacing-md);
-    font-weight: 300;
-    color: var(--color-text);
 }
 
 .venue-intro {
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-size: var(--text-lg);
     font-style: italic;
     color: var(--color-text-light);
     margin-bottom: var(--spacing-sm);
 }
 
 .invitation-text {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: var(--text-lg);
     margin-bottom: var(--spacing-md);
-    color: var(--color-text);
 }
 
 .joy-text {
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-size: var(--text-base);
     color: var(--color-text-light);
-    line-height: 1.8;
     margin-top: var(--spacing-md);
 }
 
@@ -286,97 +301,25 @@ section {
 }
 
 .rsvp-section h3 {
-    color: var(--color-text);
     margin-bottom: var(--spacing-lg);
 }
 
-.rsvp-instructions ol {
+.rsvp-instructions ul {
     list-style: none;
-    counter-reset: rsvp-counter;
     margin: var(--spacing-lg) auto;
     max-width: 500px;
+    padding: 0;
 }
 
 .rsvp-instructions li {
-    counter-increment: rsvp-counter;
     margin-bottom: var(--spacing-md);
-    font-size: 1.1rem;
-    position: relative;
-    padding-left: 3rem;
+    font-size: var(--text-md);
     text-align: left;
     color: var(--color-text);
 }
 
-.rsvp-instructions li::before {
-    content: counter(rsvp-counter) ".";
-    position: absolute;
-    left: 0;
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--color-text-light);
-}
-
-.qr-container {
-    margin: var(--spacing-lg) 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.qr-placeholder {
-    width: 200px;
-    height: 200px;
-    background-color: var(--color-white);
-    border: 2px solid var(--color-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-}
-
-.qr-placeholder p {
-    color: var(--color-text-lighter);
-    margin: 0;
-}
-
-.btn-primary {
-    display: inline-block;
-    padding: 1rem 3rem;
-    background-color: transparent;
-    color: var(--color-text);
-    border: 2px solid var(--color-primary);
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transition: var(--transition-smooth);
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    opacity: 1;
-}
-
-.dress-code {
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid var(--color-border);
-}
-
-.dress-code p {
-    font-size: 1rem;
-    font-style: italic;
-    margin: 0;
-    color: var(--color-text);
-}
-
-.dress-code strong {
-    color: var(--color-text);
+.rsvp-instructions li:last-child {
+    margin-bottom: 0;
 }
 
 /* ===================================
@@ -394,9 +337,7 @@ section {
 .section-title {
     text-align: center;
     margin-bottom: var(--spacing-lg);
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    color: var(--color-text);
+    letter-spacing: var(--tracking-wide);
 }
 
 .section-ornament {
@@ -468,9 +409,9 @@ section {
 .time .label,
 .location .label {
     display: block;
-    font-size: 0.85rem;
+    font-size: var(--text-eyebrow);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: var(--tracking-wide);
     color: var(--color-text-light);
     margin-bottom: var(--spacing-xs);
 }
@@ -479,17 +420,17 @@ section {
 .location .value {
     display: block;
     font-family: var(--font-serif);
-    font-size: 1.8rem;
-    font-weight: 300;
+    font-size: var(--text-display-md);
+    font-weight: var(--weight-light);
     margin-bottom: var(--spacing-xs);
     color: var(--color-text);
 }
 
+.time .address,
 .location .address {
     display: block;
-    font-size: 1rem;
+    font-size: var(--text-base);
     color: var(--color-text-light);
-    line-height: 1.6;
 }
 
 .map-container {
@@ -583,47 +524,6 @@ section {
     transform: scale(1.05);
 }
 
-.map-placeholder {
-    width: 100%;
-    height: 400px;
-    background-color: var(--color-secondary);
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    position: relative;
-    overflow: hidden;
-}
-
-.map-placeholder p {
-    color: var(--color-text-light);
-    font-size: 1.2rem;
-    margin: 0;
-}
-
-.map-link {
-    position: absolute;
-    bottom: var(--spacing-md);
-    right: var(--spacing-md);
-    padding: 0.5rem 1.5rem;
-    background-color: rgba(255, 255, 255, 0.95);
-    color: var(--color-text);
-    border: 1px solid var(--color-primary);
-    border-radius: 4px;
-    font-size: 0.95rem;
-    transition: var(--transition-smooth);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.map-link:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    opacity: 1;
-}
-
 .transport-info {
     margin-top: var(--spacing-lg);
     padding: var(--spacing-md);
@@ -633,10 +533,8 @@ section {
 }
 
 .transport-info h4 {
-    font-size: 1.2rem;
     margin-bottom: var(--spacing-md);
     text-align: center;
-    color: var(--color-text);
 }
 
 .transport-options {
@@ -658,6 +556,7 @@ section {
 
 .transport-option p {
     margin: 0;
+    font-size: var(--text-md);
     color: var(--color-text-light);
 }
 
@@ -687,16 +586,8 @@ section {
     border-left-color: var(--color-primary);
 }
 
-.news-date {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-text-light);
-    margin-bottom: var(--spacing-xs);
-}
-
 .news-text {
-    font-size: 1.1rem;
+    font-size: var(--text-md);
     margin: 0;
     color: var(--color-text);
 }
@@ -713,7 +604,7 @@ section {
     padding: var(--spacing-sm) 0;
     border-bottom: 1px solid var(--color-border);
     color: var(--color-text);
-    font-size: 1.05rem;
+    font-size: var(--text-md);
 }
 
 .program-list li:last-child {
@@ -724,7 +615,7 @@ section {
     display: inline-block;
     min-width: 6.5rem;
     color: var(--color-primary);
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
 }
 
 /* ===================================
@@ -757,7 +648,7 @@ section {
 
 .contact-emails a {
     color: var(--color-text);
-    font-size: 1.1rem;
+    font-size: var(--text-md);
     transition: var(--transition-smooth);
 }
 
@@ -779,14 +670,6 @@ section {
         gap: var(--spacing-md);
     }
 
-    .map-placeholder {
-        height: 300px;
-    }
-
-    .rsvp-instructions li {
-        padding-left: 2.5rem;
-    }
-
     .decoration-element {
         display: none;
     }
@@ -795,16 +678,6 @@ section {
 @media (max-width: 480px) {
     .hero {
         padding: var(--spacing-md) var(--spacing-sm);
-    }
-
-    .qr-placeholder {
-        width: 150px;
-        height: 150px;
-    }
-
-    .btn-primary {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
     }
 }
 
