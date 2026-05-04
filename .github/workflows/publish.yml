@@ -1,0 +1,33 @@
+name: Publish to public repo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build _site
+        run: |
+          mkdir -p _site/sources
+          rsync -a \
+            --include='/css/***' \
+            --include='/js/***' \
+            --include='/images/***' \
+            --include='/index.html' \
+            --include='/.nojekyll' \
+            --exclude='*' \
+            ./ _site/
+          cp sources/invite_front.png sources/kaple_mapa.png sources/rez_map_arrows.png _site/sources/
+
+      - name: Push to anezkaaadam.github.io
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.PUBLISH_TOKEN }}
+          external_repository: anezkaaadam/anezkaaadam.github.io
+          publish_branch: main
+          publish_dir: ./_site
+          force_orphan: true
+          commit_message: "Publish from mojzis/svatba@${{ github.sha }}"
