@@ -249,7 +249,7 @@ section {
 .closing-letter p {
     font-size: var(--text-base);
     line-height: 1.7;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     color: var(--color-text-light);
 }
 
