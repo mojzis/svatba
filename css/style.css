@@ -232,6 +232,60 @@ section {
     margin: 0 auto var(--spacing-md);
 }
 
+.closing-letter {
+    max-width: 640px;
+    margin: var(--spacing-lg) auto;
+    text-align: left;
+}
+
+.closing-title {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: var(--text-display-md);
+    font-weight: var(--weight-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.closing-letter p {
+    font-size: var(--text-base);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+}
+
+.closing-letter a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.thanks-title {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-weight: var(--weight-light);
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.thanks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.thanks-list li {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-md);
+    position: relative;
+    color: var(--color-text-light);
+}
+
+.thanks-list li::before {
+    content: "❧";
+    position: absolute;
+    left: 0;
+    opacity: 0.4;
+}
+
 .names {
     margin: var(--spacing-lg) 0;
 }
