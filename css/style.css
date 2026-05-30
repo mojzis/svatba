@@ -258,6 +258,14 @@ section {
     text-underline-offset: 3px;
 }
 
+.signature-image {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    margin: var(--spacing-md) auto 0;
+}
+
 .thanks-title {
     text-align: center;
     font-family: var(--font-serif);
