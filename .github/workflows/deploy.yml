@@ -45,7 +45,7 @@ jobs:
           cp sources/invite_front.png sources/kaple_mapa.png sources/rez_map_arrows.png _site/sources/
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: '_site'
 
